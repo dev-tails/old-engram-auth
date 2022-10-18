@@ -1,0 +1,17 @@
+{
+  "name": "@engramhq/auth",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild src/index.ts --bundle --minify --outfile=static/js/auth.js",
+    "start": "http-server static",
+    "dev": "npm run build -- --watch"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.15.11",
+    "http-server": "^14.1.1"
+  }
+}
