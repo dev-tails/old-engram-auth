@@ -36,8 +36,19 @@ export const SignupPage = () => {
   })
   signUpButton.innerText = "Sign Up";
 
-  signUpButton.addEventListener("click", () => {
-    alert("TODO: Implement POST api.engramhq.xyz/user/signup")
+  signUpButton.addEventListener("click", async () => {
+    const response = await fetch("http://localhost:4000/u/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value
+      }),
+      credentials: "include"
+    })
+    alert(await response.json())
   })
   el.append(signUpButton)
 

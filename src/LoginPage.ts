@@ -30,16 +30,39 @@ export const LoginPage = () => {
   passwordInput.type = "password";
   el.append(passwordInput);
 
-  const signUpButton = document.createElement("button");
-  setStyle(signUpButton, {
+  const loginButton = document.createElement("button");
+  setStyle(loginButton, {
     margin: "4px 0"
   })
-  signUpButton.innerText = "Login";
+  loginButton.innerText = "Login";
 
-  signUpButton.addEventListener("click", () => {
-    alert("TODO: Implement POST api.engramhq.xyz/user/login")
+  loginButton.addEventListener("click", async () => {
+    const response = await fetch("http://localhost:4000/u/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: emailInput.value,
+        password: passwordInput.value
+      }),
+      credentials: "include"
+    })
+    
+    await fetch("http://localhost:4000/blocks", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        localId: "test",
+        body: "First cross domain test",
+        createdAt: new Date()
+      }),
+      credentials: "include"
+    })
   })
-  el.append(signUpButton)
+  el.append(loginButton)
 
   const signupDescription = document.createElement("div");
   signupDescription.innerText = "Already have an account?"
