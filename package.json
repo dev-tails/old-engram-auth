@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --minify --outfile=static/js/auth.js",
-    "start": "http-server static",
-    "dev": "npm run build -- --watch"
+    "build": "node build.mjs",
+    "docker:build": "docker build -t engramhq/auth . -f docker/Dockerfile",
+    "docker:run": "docker run -p 80:80 engramhq/auth"
   },
   "author": "",
   "license": "ISC",
