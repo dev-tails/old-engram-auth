@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node build.mjs",
-    "docker:build": "docker build -t engramhq/auth . -f docker/Dockerfile",
-    "docker:run": "docker run -p 80:80 engramhq/auth"
+    "docker:build": "docker build -t engramapp/auth . -f docker/Dockerfile",
+    "docker:run": "docker run -p 80:80 engramapp/auth",
+    "docker:push": "docker push engramapp/auth"
   },
   "author": "",
   "license": "ISC",
