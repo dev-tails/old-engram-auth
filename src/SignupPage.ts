@@ -1,3 +1,4 @@
+import { config } from "./config";
 import { setURL } from "./HistoryUtils";
 import { setStyle } from "./setStyle";
 
@@ -37,7 +38,7 @@ export const SignupPage = () => {
   signUpButton.innerText = "Sign Up";
 
   signUpButton.addEventListener("click", async () => {
-    const response = await fetch("http://localhost:4000/u/signup", {
+    const response = await fetch(`${config.baseUrl}/u/signup`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

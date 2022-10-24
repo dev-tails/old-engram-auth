@@ -1,3 +1,4 @@
+import { config } from "./config";
 import { setURL } from "./HistoryUtils";
 import { setStyle } from "./setStyle";
 
@@ -37,7 +38,7 @@ export const LoginPage = () => {
   loginButton.innerText = "Login";
 
   loginButton.addEventListener("click", async () => {
-    const response = await fetch("http://localhost:4000/u/login", {
+    const response = await fetch(`${config.baseUrl}/u/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,19 +46,6 @@ export const LoginPage = () => {
       body: JSON.stringify({
         email: emailInput.value,
         password: passwordInput.value
-      }),
-      credentials: "include"
-    })
-    
-    await fetch("http://localhost:4000/blocks", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        localId: "test",
-        body: "First cross domain test",
-        createdAt: new Date()
       }),
       credentials: "include"
     })
