@@ -7,7 +7,8 @@
     "build": "node build.mjs",
     "docker:build": "docker build -t engramapp/auth . -f docker/Dockerfile",
     "docker:run": "docker run -p 80:80 engramapp/auth",
-    "docker:push": "docker push engramapp/auth"
+    "docker:push": "docker push engramapp/auth",
+    "compose:up": "docker compose --env-file .env -f docker/docker-compose.yaml up"
   },
   "author": "",
   "license": "ISC",
